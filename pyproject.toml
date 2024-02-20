@@ -7,14 +7,20 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
-pyqt6 = "^6.6.1"
+python = ">=3.11,<3.13"
 ruff = "^0.2.1"
 pre-commit = "^3.6.0"
 isort = "^5.13.2"
 pyupgrade = "^3.15.0"
 
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 120
+lint.ignore = [
+    "E712",  # Allow using if x == False, as it's not always equivalent to if x.
+    "F403",  # Enable * import
+    "F405",  # Enable usage of variables/function/etc. from * import
+]
