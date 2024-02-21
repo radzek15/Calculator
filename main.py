@@ -1,5 +1,6 @@
 from src.Gui import Gui
 
-calc = Gui()
-calc.place_buttons()
-calc.run()
+if __name__ == "__main__":
+    calc = Gui()
+    calc.place_buttons()
+    calc.run()
