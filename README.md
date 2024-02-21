@@ -25,6 +25,8 @@
 
 ## Usage:
 
+![photo_calculator](https://github.com/radzek15/Calculator/assets/79796741/dc1c4025-d038-4771-80ba-f17ec2678752)
+
 
 ## Tech Stack:
    * Python3
