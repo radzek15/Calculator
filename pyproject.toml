@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "calculator"
-version = "0.1.0"
+version = "1.0.0"
 description = "Calculator"
 authors = ["radzek15 <radzek15@wp.pl>"]
 license = "MIT"
