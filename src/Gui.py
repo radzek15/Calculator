@@ -1,23 +1,28 @@
 import tkinter as tk
 
+import customtkinter as ctk
+
 from .constants import *
 
 
 class Gui:
     def __init__(self):
-        self.window = tk.Tk()
+        self.window = ctk.CTk()
         self.window.title(APP_TITLE)
+        self.window.geometry("350x500")
+        self.window.resizable(False, False)
         self.entered_string = tk.StringVar()
         self.memory = 0
-        self.entry = tk.Entry(
+        self.entry = ctk.CTkEntry(
             self.window,
             textvariable=self.entered_string,
-            width=18,
+            width=ENTRY_WIDTH,
+            height=ENTRY_HEIGHT,
             font=FONT,
             state="readonly",
             justify="right",
         )
-        self.entry.grid(row=1, column=1, columnspan=4)
+        self.entry.grid(row=1, column=1, columnspan=4, pady=20)
 
         self.buttons = {
             0: [7, 2, lambda: self.on_button_click(0)],
@@ -50,16 +55,25 @@ class Gui:
     @staticmethod
     def change_state_decorator(func):
         def change_state_wrapper(self, *args, **kwargs):
-            self.entry.config(state="normal")
+            self.entry.configure(state="normal")
             func(self, *args, **kwargs)
-            self.entry.config(state="readonly")
+            self.entry.configure(state="readonly")
 
         return change_state_wrapper
 
     def place_buttons(self):
         for num, [row, col, command] in self.buttons.items():
-            btn = tk.Button(self.window, text=str(num), width=10, height=3, command=command)
-            btn.grid(row=row, column=col)
+            btn = ctk.CTkButton(
+                self.window,
+                text=str(num),
+                width=BUTTON_WIDTH,
+                height=BUTTON_HEIGHT,
+                command=command,
+                border_width=2,
+                border_color="#f09636",
+                fg_color="#34749b",
+            )
+            btn.grid(row=row, column=col, pady=5)
 
     def run(self):
         self.window.mainloop()
