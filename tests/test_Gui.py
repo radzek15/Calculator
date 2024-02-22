@@ -5,7 +5,9 @@ from src.Gui import Gui
 
 @pytest.fixture
 def gui():
-    return Gui()
+    gui_instance = Gui()
+    yield gui_instance
+    gui_instance.window.destroy()
 
 
 @pytest.mark.Gui

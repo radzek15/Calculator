@@ -8,6 +8,7 @@ from .constants import *
 class Gui:
     def __init__(self):
         self.window = ctk.CTk()
+        self.window.iconphoto(False, tk.PhotoImage(file=APP_ICON))
         self.window.title(APP_TITLE)
         self.window.geometry("350x500")
         self.window.resizable(False, False)

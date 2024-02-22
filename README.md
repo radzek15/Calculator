@@ -20,13 +20,22 @@
    * Firstly clone the repo:
      * `git clone https://github.com/radzek15/PyDataScripter`
    * Initialize virtual environment and install dependencies:
+     * go to the directory with application and open it in terminal/cmd
      * `poetry install && poetry shell`
+   * Aplication can be easily converted into `.exe` file:
+     * `pyinstaller main.py -w`
+   * and further to setup wizard with any software intented for that purpose
+   * Run tests:
+     * `pytest`
 
 
 ## Usage:
 
+<div align="center">
+
 ![photo_calculator](https://github.com/radzek15/Calculator/assets/79796741/2f97bfee-930a-43b9-86e6-adfd62310f54)
 
+</div>
 
 ## Tech Stack:
    * Python3
