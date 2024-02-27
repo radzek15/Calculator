@@ -1,4 +1,4 @@
-name: Code Testing
+name: Build
 
 on:
   push:
@@ -11,7 +11,11 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ 'windows-latest', 'ubuntu-latest', 'macos-latest' ]
 
     steps:
       - uses: actions/checkout@v4
@@ -33,3 +37,4 @@ jobs:
       - name: Install dependencies
         run: poetry install
         if: steps.cached-poetry-dependencies.output.cache-hit != 'true'
+      - run: pyinstaller main.py
