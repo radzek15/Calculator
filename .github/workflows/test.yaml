@@ -33,3 +33,8 @@ jobs:
       - name: Install dependencies
         run: poetry install
         if: steps.cached-poetry-dependencies.output.cache-hit != 'true'
+      - name: Test with pytest
+        run: |
+          export DISPLAY=:99
+          Xvfb :99 &
+          poetry run pytest
