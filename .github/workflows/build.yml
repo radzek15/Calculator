@@ -33,4 +33,3 @@ jobs:
       - name: Install dependencies
         run: poetry install
       - run: poetry run pyinstaller main.py
-      - run: ./dist/main/main
