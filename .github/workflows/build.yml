@@ -33,4 +33,4 @@ jobs:
       - name: Install dependencies
         run: poetry install
         if: steps.cached-poetry-dependencies.output.cache-hit != 'true'
-      - run: pyinstaller main.py
+      - run: poetry pyinstaller main.py
