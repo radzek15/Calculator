@@ -26,7 +26,6 @@ jobs:
           poetry env use ${{ env.PYTHON_VERSION }}
       - name: Install dependencies
         run: |
-          poetry lock --no-update
           poetry install
       - run: poetry run pyinstaller --add-data "static/icon.png:static" main.py
       - name: Upload binary
